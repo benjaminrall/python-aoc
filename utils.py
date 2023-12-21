@@ -2,7 +2,6 @@ from datetime import date
 from .constants import URL
 import os
 
-
 def get_day_url(day: int = None, year: int = None) -> str:
     """Returns the URL for AoC for the given day and year."""
     # Gives day and year default values
@@ -17,7 +16,8 @@ def get_session() -> str:
     """Returns the current AoC session stored as an environment variable."""
     return os.environ.get("AOC_SESSION")
     
-def verify_path(path: str) -> None:
+def create_dirs(path: str) -> None:
+    """Creates all the directories in a given path."""
     # Checks if the path already exists
     if os.path.exists(path):
         return
