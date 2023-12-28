@@ -30,3 +30,21 @@ def create_dirs(path: str) -> None:
         accumulated_path += d + "/"
         if not os.path.exists(accumulated_path):
             os.mkdir(accumulated_path)
+
+def string_replace(string: str, insertion: str, start: int, end: int) -> str:
+    return string[:start] + insertion + string[end:]
+
+def replace_line(string: str, insertion: str, index: int) -> str:
+    trimmed = string[index:]
+    end = trimmed.find("\n")
+    end = len(string) if end == -1 else index + end
+    return string_replace(string, insertion, index, end)
+
+def string_remove(string: str, start: int, end: int) -> str:
+    return string[:start] + string[end + 1:]
+
+def remove_line(string: str, index: int) -> str:
+    trimmed = string[index:]
+    end = trimmed.find("\n")
+    end = len(string) if end == -1 else index + end
+    return string_remove(string, index, end)

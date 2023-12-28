@@ -1,7 +1,8 @@
 # Useful imports
-from pyaoc import Session
+import pyaoc
 import math
 import numpy as np
+from functools import cache
 
 # Placeholders to be filled when copying the template
 PART = {part}
@@ -10,10 +11,6 @@ YEAR = {year}
 
 # The expected result from the test input, if using a test input
 TEST_RESULT = None
-
-# Gets and sets up the pyaoc session
-session = Session(PART, DAY, YEAR)
-session.set_test_result(TEST_RESULT)
 
 # Method to solve the input stored in a given file name
 def solve(filename: str) -> int:
@@ -25,5 +22,9 @@ def solve(filename: str) -> int:
     # --- SOLUTION CODE ---
     return None
 
-# Submit the current solve method
-session.submit(solve)
+# Attempt to submit the current solve method
+pyaoc.submit(
+    solve, PART, DAY, YEAR, 
+    test_result=TEST_RESULT,
+    test=True
+)
