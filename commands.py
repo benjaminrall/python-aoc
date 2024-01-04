@@ -256,11 +256,13 @@ def submit(fn: Callable[[str], int], part: int, day: int = None, year: int = Non
             submit_i = solution_contents.index("# Attempt to submit")
             saved_contents = string_remove(solution_contents, submit_i, len(solution_contents))
             saved_contents = remove_line(saved_contents, import_i)
-            test_print = 'print(f"Test solution: {solve(\'test.txt\')}")\n'
-            actual_print = 'print(f"Actual solution: {solve(\'input.txt\')}")\n'
+            main_thread = 'if __name__ == "__main__":'
+            test_print = '\tprint(f"Test solution: {solve(\'test.txt\')}")\n'
+            actual_print = '\tprint(f"Actual solution: {solve(\'input.txt\')}")\n'
+            saved_contents = replace_line(saved_contents, main_thread, len(saved_contents))
             saved_contents = replace_line(saved_contents, test_print, len(saved_contents))
             saved_contents = replace_line(saved_contents, actual_print, len(saved_contents))
-            with open(os.path.join(os.path.curdir, f"part-{part}.py"), "w") as f:
+            with open(os.path.join(os.path.curdir, f"part{part}.py"), "w") as f:
                 f.write(saved_contents)
 
             # Advances or deletes `main.py` file depending on the current part
