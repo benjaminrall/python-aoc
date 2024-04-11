@@ -3,6 +3,7 @@ import pyaoc
 import math
 import numpy as np
 from functools import cache
+from collections import defaultdict
 
 # Placeholders to be filled when copying the template
 PART = {part}
