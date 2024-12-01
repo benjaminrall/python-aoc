@@ -16,6 +16,10 @@ def get_session() -> str:
     """Returns the current AoC session stored as an environment variable."""
     return os.environ.get("AOC_SESSION")
     
+def set_session(cookie: str) -> None:
+    """Stores the given AoC session cookie as an environment variable."""
+    os.environ["AOC_SESSION"] = cookie
+
 def create_dirs(path: str) -> None:
     """Creates all the directories in a given path."""
     # Checks if the path already exists

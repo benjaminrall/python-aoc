@@ -3,6 +3,7 @@ import pyaoc
 import math
 import numpy as np
 from functools import cache
+from collections import defaultdict
 
 # Placeholders to be filled when copying the template
 PART = {part}
@@ -14,12 +15,11 @@ TEST_RESULT = None
 
 # Method to solve the input stored in a given file name
 def solve(filename: str) -> int:
-    # --- INPUT HANDLING ---
+    # --- SOLUTION CODE ---
     with open(filename) as f:
         lines = [line.strip() for line in f.readlines()]
     print(lines)
 
-    # --- SOLUTION CODE ---
     return None
 
 # Attempt to submit the current solve method
