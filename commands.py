@@ -167,7 +167,7 @@ def submit(fn: Callable[[str], int], part: int, day: int = None, year: int = Non
     day : int, optional
         The day to submit to, by default the current day
     year : int, optional
-        The yaer to submit to, by default the current year
+        The year to submit to, by default the current year
     path : str, optional
         Path to the real input file, by default "input.txt"
     test : bool, optional
@@ -256,9 +256,9 @@ def submit(fn: Callable[[str], int], part: int, day: int = None, year: int = Non
             submit_i = solution_contents.index("# Attempt to submit")
             saved_contents = string_remove(solution_contents, submit_i, len(solution_contents))
             saved_contents = remove_line(saved_contents, import_i)
-            main_thread = 'if __name__ == "__main__":'
-            test_print = '\tprint(f"Test solution: {solve(\'test.txt\')}")\n'
-            actual_print = '\tprint(f"Actual solution: {solve(\'input.txt\')}")\n'
+            main_thread = 'if __name__ == "__main__":\n'
+            test_print = '    print(f"Test solution: {solve(\'test.txt\')}")\n'
+            actual_print = '    print(f"Actual solution: {solve(\'input.txt\')}")\n'
             saved_contents = replace_line(saved_contents, main_thread, len(saved_contents))
             saved_contents = replace_line(saved_contents, test_print, len(saved_contents))
             saved_contents = replace_line(saved_contents, actual_print, len(saved_contents))
