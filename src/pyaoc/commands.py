@@ -243,7 +243,7 @@ def submit(fn: Callable[[str], int], part: int, day: int = None, year: int = Non
     result = fn(path)
     if verbose:
         print(f"Final Result: `{result}`")
-        print(f"Attempting to submit day {day}-{year} part {part} to AoC.")
+        print(f"Attempting to submit day {day or date.today().day}-{year or date.today().year} part {part} to AoC.")
     
     # Checks that the session cookie environment variable exists
     session = get_session()
