@@ -60,7 +60,7 @@ The most common workflow is to create, test, and submit a solution.
 
 For the complete list of CLI commands and their arguments, run `pyaoc --help`.
 
-## Library usage
+## Library Usage
 
 You can also import and use the core functions in your own Python scripts:
 
