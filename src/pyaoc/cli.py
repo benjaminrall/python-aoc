@@ -12,10 +12,6 @@ app = typer.Typer(
     help="A Python CLI and library for interacting with the Advent of Code API."
 )
 
-# Sub application for session commands
-session_app = typer.Typer()
-app.add_typer(session_app, name="session", help="Manages the AoC session cookie.")
-
 def _load_solve_method(path: str) -> Callable[[str], int]:
     """Attempts to load the 'solve' method from the given Python file path."""
     # Checks that the given path exists
@@ -48,13 +44,8 @@ def _load_solve_method(path: str) -> Callable[[str], int]:
     # Returns a reference to the method
     return getattr(solution_module, 'solve')
 
-@session_app.command("set", help="Sets your AoC session token.")
-def session_set(token: str = typer.Argument(..., help="Your AoC session token.")):
-    aoc.set_session(token)
-    print("Session token saved successfully.")
-
-@session_app.command("get", help="Displays the currently saved AoC session token.")
-def session_get():
+@app.command(help="Displays the currently saved AoC session token.")
+def session():
     session = aoc.get_session()
     if session:
         print(f"Current session token: {session}")

@@ -1,6 +1,6 @@
 [project]
 name = "python-aoc"
-version = "0.1.2"
+version = "0.1.3"
 description = "A Python CLI and library for interacting with the Advent of Code API to fetch puzzles, download inputs, and submit answers."
 readme = "README.md"
 authors = [

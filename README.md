@@ -21,10 +21,12 @@ It can then be used in the command line and imported as a library with `pyaoc`.
 
 ## Configuration
 
-To interact with the Advent of Code API, you must provide your session token. This tool reads the token from an environment variable named `AOC_SESSION`, which can be set manually or through the following command:
+To interact with the Advent of Code API, you must provide your session token. This tool reads the token from an environment variable named `AOC_SESSION`, which must be set before use.
+
+To verify that your session cookie is set up correctly, you can display it using the following command:
 
 ```sh
-pyaoc session set <your-session-token>
+pyaoc session
 ```
 
 ## Quick Start
@@ -65,13 +67,13 @@ You can also import and use the core functions in your own Python scripts:
 ```py
 import pyaoc
 
-# Sets the session token (if it's not already set as an environment variable)
+# Sets the session token for this script
 pyaoc.set_session("your-session-token")
 
 try:
-    # Get puzzle input for Dec 1, 2023
+    # Get puzzle input for Day 1, 2023
     puzzle_input = pyaoc.get_day_input(day=1, year=2023)
-    print(puzzle_input[:50]) # Print the first 50 characters
+    print(puzzle_input[:50]) # Prints the first 50 characters
 except Exception as e:
     print(f"An error occurred: {e}")
 ```

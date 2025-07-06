@@ -13,7 +13,11 @@ def get_session() -> str:
     
 
 def set_session(cookie: str) -> None:
-    """Stores the given AoC session cookie as an environment variable."""
+    """Sets the AoC session cookie for the current running process.
+    
+    Note: This change only affects the current process and will not
+    permanently set the environment variable in your shell.
+    """
     os.environ["AOC_SESSION"] = cookie
 
 
