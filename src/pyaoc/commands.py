@@ -1,12 +1,49 @@
-from .utils import get_day_url, get_session, create_dirs, replace_line, remove_line, string_remove
-from datetime import date
+import os
 import webbrowser
 import requests
+from .utils import create_dirs, replace_line, remove_line, string_remove
+from datetime import date
 from typing import Callable
-import os
+from .constants import URL
+
+
+def get_session() -> str:
+    """Returns the current AoC session stored as an environment variable."""
+    return os.environ.get("AOC_SESSION")
+    
+
+def set_session(cookie: str) -> None:
+    """Stores the given AoC session cookie as an environment variable."""
+    os.environ["AOC_SESSION"] = cookie
+
+
+def get_day_url(day: int = None, year: int = None) -> str:
+    """Returns the AoC URL for the given day and year.
+
+    Parameters
+    ----------
+    day : int, optional
+        The day, by default the current day
+    year : int, optional
+        The year, by default the current year
+
+    Returns
+    -------
+    str
+        The URL for the AoC page.
+    """    
+    # Assigns day and year default values
+    if day is None:
+        day = date.today().day
+    if year is None:
+        year = date.today().year
+
+    # Constructs and returns the AoC URL
+    return f"{URL}/{year}/day/{day}"
+
 
 def open_day(day: int = None, year: int = None) -> None:
-    """Opens the challenge page for a given day and year of AoC in your default browser.
+    """Opens the AoC puzzle page for a given day and year in the default browser.
  
     Parameters
     ----------
@@ -16,6 +53,7 @@ def open_day(day: int = None, year: int = None) -> None:
         The year to open, by default the current year
     """
     webbrowser.open(get_day_url(day, year))
+
 
 def get_day_input(day: int = None, year: int = None) -> str:
     """Fetches the input for a given day and year of AoC.
@@ -31,7 +69,7 @@ def get_day_input(day: int = None, year: int = None) -> str:
     session = get_session()
     if session is None:
         raise Exception(
-            "To get input correctly the session cookie must be stored in the 'AOC_SESSION' environment variable."
+            "To get input correctly the session cookie must be stored in the `AOC_SESSION` environment variable."
         )
 
     # Fetches the website
@@ -55,6 +93,7 @@ def get_day_input(day: int = None, year: int = None) -> str:
         )
 
     return response.text
+
 
 def save_day_input(day: int = None, year: int = None, path: str = None) -> None:
     """Saves the input for a given day and year of AoC to a file called 'input.txt' at the given path.
@@ -82,8 +121,9 @@ def save_day_input(day: int = None, year: int = None, path: str = None) -> None:
     with open(path, "w") as f:
         f.write(day_input)
 
+
 def copy_template(part: int = 1, day: int = None, year: int = None, path: str = None) -> None:
-    """Copies the template AoC code file to a given path.
+    """Copies the template AoC code file to the given path.
 
     Parameters
     ----------
@@ -120,9 +160,10 @@ def copy_template(part: int = 1, day: int = None, year: int = None, path: str = 
                 year = year
             ))
 
+
 def test_solution(fn: Callable[[str], int], test_result: int, 
                   path: str ="test.txt", verbose: bool = True) -> bool:
-    """Tests a solution against a given result.
+    """Tests a solution against the given result.
 
     Parameters
     ----------
@@ -208,7 +249,7 @@ def submit(fn: Callable[[str], int], part: int, day: int = None, year: int = Non
     session = get_session()
     if session is None:
         raise Exception(
-            "To get input correctly the session cookie must be stored in the 'AOC_SESSION' environment variable."
+            "To get input correctly the session cookie must be stored in the `AOC_SESSION` environment variable."
         )
 
     # Attempts to submit the result
@@ -287,7 +328,9 @@ def submit(fn: Callable[[str], int], part: int, day: int = None, year: int = Non
 
     return False
 
+
 def create_test_file(path: str = None) -> None:
+    """Creates an empty text file called "test.txt" at the given path."""
     # Fills default path
     if path is None:
         path = f"/test.txt"
@@ -301,7 +344,9 @@ def create_test_file(path: str = None) -> None:
     with open(path, "w") as f:
         f.write("")
 
+
 def create_day(day: int = None, year: int = None, path: str = None) -> None:
+    """Creates a folder containing all necessary elements for solving a day of AoC."""
     # Fills default path
     if path is None:
         path = f"day-{day if day else date.today().day}/"
