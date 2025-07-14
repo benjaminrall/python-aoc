@@ -78,6 +78,31 @@ except Exception as e:
     print(f"An error occurred: {e}")
 ```
 
+## Development Setup
+
+This project uses [uv](https://github.com/astral-sh/uv) as a package and virtual environment manager. To set up the project for development, follow these steps:
+
+1. **Clone the repository**:
+
+   ```sh
+   git clone https://github.com/benjaminrall/python-aoc.git
+   cd python-aoc
+   ```
+
+2. **Create the virtual environment using [uv](https://github.com/astral-sh/uv)**:
+
+   ```sh
+   uv venv
+   ```
+
+3. **Install the project in editable mode**:
+
+   ```sh
+   uv pip install -e .
+   ```
+
+   This will allow use of the `pyaoc` command such that any changes made to the source code will be immediately reflected.
+
 ## License
 This project is licensed under the **MIT License**. See the [`LICENSE`](./LICENSE) file for details.
 
