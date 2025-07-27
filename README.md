@@ -13,7 +13,7 @@ A Python CLI and library for interacting with the [Advent of Code](https://adven
 
 To use the project, you can simply install it using `pip`:
 
-```sh
+```shell
 pip install python-aoc
 ```
 
@@ -25,7 +25,7 @@ To interact with the Advent of Code API, you must provide your session token. Th
 
 To verify that your session cookie is set up correctly, you can display it using the following command:
 
-```sh
+```shell
 pyaoc session
 ```
 
@@ -37,7 +37,7 @@ The most common workflow is to create, test, and submit a solution.
 
    The following command will create a `day-5/` directory, download the input into `day-5/input.txt`, create a `day-5/test.txt` file to hold a test input, and create a `day-5/main.py` script file from the default `python-aoc` template:
 
-   ```sh
+   ```shell
    pyaoc create 5 2025
    ```
 
@@ -45,7 +45,7 @@ The most common workflow is to create, test, and submit a solution.
 
    Once you have completed your solution to the puzzle, written in a `solve` function which takes in the path to an input file, you can test it against a known answer for an example case in `test.txt`:
 
-   ```sh
+   ```shell
    # Assuming the example answer is 123
    pyaoc test day-5/main.py 123 --test-input-path day-5/test.txt
    ```
@@ -54,7 +54,7 @@ The most common workflow is to create, test, and submit a solution.
 
    Then, the final solution for the specified part can be submitted using the `submit` command:
 
-   ```sh
+   ```shell
    pyaoc submit day-5/main.py 1 --day 5 --year 2025 --input-path day-5/input.txt
    ```
 
