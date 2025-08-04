@@ -1,5 +1,7 @@
 # Python Advent of Code 🎄
 
+[![PyPI Version](https://img.shields.io/pypi/v/python-aoc)](https://pypi.org/project/python-aoc/)
+
 A Python CLI and library for interacting with the [Advent of Code](https://adventofcode.com/) API.
 
 ## Key Features
