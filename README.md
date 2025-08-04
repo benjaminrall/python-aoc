@@ -89,20 +89,14 @@ This project uses [uv](https://github.com/astral-sh/uv) as a package and virtual
    cd python-aoc
    ```
 
-2. **Create the virtual environment using [uv](https://github.com/astral-sh/uv)**:
+2. **Run the application using [uv](https://github.com/astral-sh/uv)**:
 
    ```sh
-   uv venv
+   uv run pyaoc
    ```
 
-3. **Install the project in editable mode**:
-
-   ```sh
-   uv pip install -e .
-   ```
-
-   This will allow use of the `pyaoc` command such that any changes made to the source code will be immediately reflected.
+   This will automatically install any required packages and run the command in a virtual environment, including any changes to the source code.
 
 ## License
-This project is licensed under the **MIT License**. See the [`LICENSE`](./LICENSE) file for details.
 
+This project is licensed under the **MIT License**. See the [`LICENSE`](./LICENSE) file for details.
