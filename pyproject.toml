@@ -1,10 +1,10 @@
 [project]
 name = "python-aoc"
-version = "0.1.5"
+version = "0.1.6"
 description = "A Python CLI and library for interacting with the Advent of Code API to fetch puzzles, download inputs, and submit answers."
 readme = "README.md"
 authors = [
-    { name = "benjaminrall", email = "benr2508@aol.com" }
+    { name = "Benjamin Rall", email = "benr2508@aol.com" }
 ]
 requires-python = ">=3.12"
 dependencies = [
